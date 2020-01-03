@@ -2,7 +2,7 @@
 
 ## Built with Python 3, Flask, Javascript, HTML, and CSS.
 
-![screenshot-mobile](application/static/images/screenshot-mobile.jpg)
+![screenshot-mobile](application/static/images/screenshot_mobile.jpg)
 
 ![screenshot](application/static/images/screenshot.jpg)
 
