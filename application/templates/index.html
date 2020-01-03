@@ -1,0 +1,34 @@
+{# application/templates/index.html #}
+
+{% extends "base.html" %}
+
+{% block title %}currency converter{% endblock %}
+
+{% block body %}
+
+  <h1 class="header">CURRENCY EXCHANGE</h1>
+
+  <p class="date-and-time"></p>
+
+  {{ form.hidden_tag() }}
+
+  <form action="/" method="POST">
+    {{ form.start_amount.label }}
+    {{ form.start_amount(class='form__field') }}
+    {%  for message in form.start_amount.errors %}
+      <p class="form__error">{{ message }}.</p>
+    {% endfor %}
+    {{ form.from_currency.label }}
+    {{ form.from_currency(class='form__field') }}
+    {{ form.to_currency.label }}
+    {{ form.to_currency(class='form__field') }}
+    <button class="btn" type="submit">CALCULATE</button>
+    {{ form.csrf_token }}
+  </form>
+
+  <div class="hidden">
+    <p>AMOUNT:</p>
+    <h2 class="total"><span class="currency_symbol">$</span>{{ '{0:.2f}'.format(amount) if amount }}</h2>
+  </div>
+
+{% endblock %}
