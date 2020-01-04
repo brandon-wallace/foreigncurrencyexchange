@@ -6,7 +6,13 @@
 
 {% block body %}
 
-  <h1 class="header">CURRENCY EXCHANGE</h1>
+  <img src="{{ url_for('static', filename='images/logo.png') }}">
+
+  <h1 class="header">
+    <span class="header__1">FOREIGN</span>
+    <span class="header__2">CURRENCY</span>
+    <span class="header__3">EXCHANGE</span>
+  </h1>
 
   <p class="date-and-time"></p>
 
@@ -22,13 +28,13 @@
     {{ form.from_currency(class='form__field') }}
     {{ form.to_currency.label }}
     {{ form.to_currency(class='form__field') }}
-    <button class="btn" type="submit">CALCULATE</button>
+    <button class="form__button" type="submit">CALCULATE</button>
     {{ form.csrf_token }}
   </form>
 
-  <div class="hidden">
+  <div>
     <p>AMOUNT:</p>
-    <h2 class="total"><span class="currency_symbol">$</span>{{ '{0:.2f}'.format(amount) if amount }}</h2>
+    <h2 class="total">{{ '${0:.2f}'.format(amount) if amount }}</h2>
   </div>
 
 {% endblock %}

@@ -23,8 +23,20 @@ article {
 }
 
 .header {
-    margin: .5rem 0;
     font-size: 3rem;
+    margin: .5rem 0;
+}
+
+.header__1 {
+    color: #101010;
+}
+
+.header__2 {
+    color: #303030;
+}
+
+.header__3 {
+    color: #505050;
 }
 
 label {
@@ -58,7 +70,7 @@ option {
     box-sizing: border-box;
 }
 
-button {
+.form__button {
     width: 250px;
     height: 45px;
     border: none;
@@ -74,24 +86,15 @@ button {
     box-shadow: inset -2px -4px 0 #727272;
 }
 
-button:hover {
+.form__button:hover {
     background-color: #454545;
 }
 
-button:active {
+.form__button:active {
     box-shadow: inset 0 0 0 #727272;
-}
-
-.currency_symbol {
-    font-size: 2rem;
 }
 
 .total {
     margin: 1rem 0;
     font-size: 3rem;
-}
-
-.error__text,
-.error_emoji {
-    font-size: 2rem;
 }
