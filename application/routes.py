@@ -7,16 +7,26 @@ import urllib.request
 import json
 
 
+def query_api():
+    '''Query API for exchange rates'''
+
+    try:
+        url = 'https://api.exchangeratesapi.io/latest?base=USD'
+        response = urllib.request.urlopen(url)
+        data = response.read()
+        text = json.loads(data)
+        return text
+    except Exception as e:
+        print(e)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     '''Display home page'''
 
     amount = None
     form = SelectionForm(from_currency='USD', to_currency='MXN')
-    url = 'https://api.exchangeratesapi.io/latest?base=USD'
-    response = urllib.request.urlopen(url)
-    data = response.read()
-    text = json.loads(data)
+    text = query_api()
     if form.validate_on_submit():
         if form.from_currency.data == 'USD':
             amount = form.start_amount.data * 1 * text['rates'][form.to_currency.data]
