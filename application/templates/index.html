@@ -32,9 +32,9 @@
     {{ form.csrf_token }}
   </form>
 
-  <div>
+  <div class="result">
     <p>AMOUNT:</p>
-    <h2 class="total">{{ '${0:.2f}'.format(amount) if amount }}</h2>
+    <h2 class="result__total">{{ '{0:.2f}'.format(amount ) if amount }}<span class="result__currency">{{ currency }}</span></h2>
   </div>
 
 {% endblock %}

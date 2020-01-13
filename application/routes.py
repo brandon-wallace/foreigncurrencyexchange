@@ -25,14 +25,23 @@ def index():
     '''Display home page'''
 
     amount = None
+    currency = None
     form = SelectionForm(from_currency='USD', to_currency='MXN')
     text = query_api()
     if form.validate_on_submit():
-        if form.from_currency.data == 'USD':
-            amount = form.start_amount.data * 1 * text['rates'][form.to_currency.data]
+        if form.to_currency.data == form.from_currency.data:
+            amount = form.start_amount.data
+            currency = form.to_currency.data
+        elif form.from_currency.data == 'USD':
+            amount = form.start_amount.data * \
+                    text['rates'][form.to_currency.data]
+            currency = form.to_currency.data
         else:
-            amount = form.start_amount.data / text['rates'][form.from_currency.data] 
-    return render_template('index.html', form=form, amount=amount)
+            amount = form.start_amount.data / \
+                    text['rates'][form.from_currency.data]
+            currency = form.to_currency.data
+    return render_template('index.html', form=form,
+                           amount=amount, currency=currency)
 
 
 @app.errorhandler(404)

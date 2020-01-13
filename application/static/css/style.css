@@ -99,7 +99,11 @@ option {
     box-shadow: inset 0 0 0 #727272;
 }
 
-.total {
+.result__total {
     margin: 1rem 0;
     font-size: 3rem;
+}
+
+.result__currency {
+    font-size: 1.25rem;
 }
