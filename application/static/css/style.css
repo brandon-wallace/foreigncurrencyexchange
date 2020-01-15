@@ -49,13 +49,13 @@ label {
 }
 
 .form__field {
-    width: 250px;
+    width: 280px;
     border: 2px;
     outline: 1px;
     padding: .75rem;
     font-size: 1rem;
-    margin-bottom: 1.25rem;
     outline-style: solid;
+    margin-bottom: 1.25rem;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background-color: #FFFFFF;
@@ -75,7 +75,7 @@ option {
 }
 
 .form__button {
-    width: 250px;
+    width: 280px;
     height: 45px;
     border: none;
     outline: none;
@@ -106,4 +106,16 @@ option {
 
 .result__currency {
     font-size: 1.25rem;
+}
+
+@media only screen and (min-width: 600px) {
+    article {
+        padding: 1.25rem 2rem;
+    }
+}
+
+@media only screen and (min-width: 955px) {
+    article {
+        padding: 1.25rem 3rem;
+    }
 }
