@@ -26,20 +26,30 @@ article {
     background-size: cover;
 }
 
-.header {
-    font-size: 3rem;
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__logo {
+    width: 84px;
+    height: 34px;
+}
+
+.header__text {
+    font-size: calc(1.5rem + 2vw);
     margin: .5rem 0;
 }
 
-.header__1 {
+.header__text1 {
     color: #202020;
 }
 
-.header__2 {
+.header__text2 {
     color: #404040;
 }
 
-.header__3 {
+.header__text3 {
     color: #606060;
 }
 

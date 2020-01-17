@@ -2,39 +2,48 @@
 
 {% extends "base.html" %}
 
-{% block title %}currency converter{% endblock %}
+{% block title %}foreign currency converter{% endblock %}
 
 {% block body %}
 
-  <img src="{{ url_for('static', filename='images/logo.png') }}">
+  <header>
 
-  <h1 class="header">
-    <span class="header__1">FOREIGN</span>
-    <span class="header__2">CURRENCY</span>
-    <span class="header__3">EXCHANGE</span>
-  </h1>
+    <img class="header__logo" src="{{ url_for('static', filename='images/logo2.png') }}">
 
-  <p class="date-and-time"></p>
+    <h1 class="header__text">
+      <span class="header__text1">FOREIGN</span>
+      <span class="header__text2">CURRENCY</span>
+      <span class="header__text3">EXCHANGE</span>
+    </h1>
 
-  {{ form.hidden_tag() }}
+  </header>
 
-  <form action="/" method="POST">
-    {{ form.start_amount.label }}
-    {{ form.start_amount(class='form__field') }}
-    {%  for message in form.start_amount.errors %}
-      <p class="form__error">{{ message }}.</p>
-    {% endfor %}
-    {{ form.from_currency.label }}
-    {{ form.from_currency(class='form__field') }}
-    {{ form.to_currency.label }}
-    {{ form.to_currency(class='form__field') }}
-    <button class="form__button" type="submit">CALCULATE</button>
-    {{ form.csrf_token }}
-  </form>
+  <section>
 
-  <div class="result">
-    <p>AMOUNT:</p>
-    <h2 class="result__total">{{ '{0:.2f}'.format(amount ) if amount }}<span class="result__currency">{{ currency }}</span></h2>
-  </div>
+    <form action="/" method="POST">
+  
+      {{ form.hidden_tag() }}
+      {{ form.start_amount.label }}
+      {{ form.start_amount(class='form__field') }}
+      {%  for message in form.start_amount.errors %}
+        <p class="form__error">{{ message }}.</p>
+      {% endfor %}
+      {{ form.from_currency.label }}
+      {{ form.from_currency(class='form__field') }}
+      {{ form.to_currency.label }}
+      {{ form.to_currency(class='form__field') }}
+      <button class="form__button" type="submit">CALCULATE</button>
+      {{ form.csrf_token }}
+  
+    </form>
+  
+    <div class="result">
+      <p>AMOUNT:</p>
+      <h2 class="result__total">{{ '{0:.2f}'.format(amount ) if amount }}<span class="result__currency">{{ currency }}</span></h2>
+    </div>
+  
+    <p class="date-and-time"></p>
+
+  </section>
 
 {% endblock %}

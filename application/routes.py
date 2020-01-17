@@ -25,7 +25,7 @@ def index():
     '''Display home page'''
 
     amount = ''
-    currency = None
+    currency = ''
     form = SelectionForm(from_currency='USD', to_currency='MXN')
     text = query_api()
     if form.validate_on_submit():
