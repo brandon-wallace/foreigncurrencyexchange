@@ -22,8 +22,8 @@
 
     <form action="/" method="POST">
   
-      {{ form.hidden_tag() }}
-      {{ form.start_amount(class='form__field', placeholder='$ 10') }}
+      {{ form.csrf_token }}
+      {{ form.start_amount(class='form__field', value='', placeholder='$ 10') }}
       {%  for message in form.start_amount.errors %}
         <p class="form__error">{{ message }}.</p>
       {% endfor %}
@@ -32,12 +32,11 @@
       {{ form.to_currency.label }}
       {{ form.to_currency(class='form__field') }}
       <button class="form__button" type="submit">CALCULATE</button>
-      {{ form.csrf_token }}
   
     </form>
   
     <div class="result">
-      <h2 class="result__total">{{ '{0:.2f}'.format(amount ) if amount }}<span class="result__currency">{{ currency }}</span></h2>
+      <h2 class="result__total">{{ '{0:.2f}'.format(amount) if amount }}<span class="result__currency">{{ currency }}</span></h2>
     </div>
   
     <p class="date-and-time"></p>
