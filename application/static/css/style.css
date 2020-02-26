@@ -34,11 +34,13 @@ header {
 .header__logo {
     width: 84px;
     height: 34px;
+    margin: 0 auto;
 }
 
 .header__text {
-    font-size: calc(1.5rem + 2vw);
     margin: .5rem 0;
+    text-align: center;
+    font-size: calc(1.5rem + 2vw);
 }
 
 .header__text1 {
@@ -53,9 +55,18 @@ header {
     color: #606060;
 }
 
+section {
+    margin: 0 auto;
+}
+
+form {
+    width: 280px;
+    margin: 0 auto;
+}
+
 label {
     display: block;
-    margin-bottom: .5rem;
+    margin-bottom: .15rem;
 }
 
 .form__field {
@@ -63,12 +74,11 @@ label {
     border: 2px;
     outline: 1px;
     padding: .75rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     outline-style: solid;
     margin-bottom: 1.25rem;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    background-color: #FFFFFF;
 }
 
 .form__error {
@@ -76,11 +86,18 @@ label {
     color: #CC0000;
 }
 
+select {
+    color: #FFFFFF;
+    background-color: #343434;
+}
+
 option {
     height: 40px;
     border: none;
     outline: none;
     padding: .75rem;
+    color: inherit;
+    background-color: inherit;
     box-sizing: border-box;
 }
 
@@ -112,6 +129,7 @@ option {
 .result__total {
     margin: 1rem 0;
     font-size: 3rem;
+    text-align: center;
 }
 
 .result__currency {
@@ -122,10 +140,30 @@ option {
     article {
         padding: 1.25rem 2rem;
     }
+    form {
+        width: 280px;
+        margin: 0 auto;
+    }
+    article {
+        padding: 1.25rem 3rem;
+    }
+    .date-and-time {
+        text-align: center;
+    }
 }
 
 @media only screen and (min-width: 955px) {
+    .header__text {
+        text-align: center;
+    }
+    form {
+        width: 280px;
+        margin: 0 auto;
+    }
     article {
         padding: 1.25rem 3rem;
+    }
+    .date-and-time {
+        text-align: center;
     }
 }

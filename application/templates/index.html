@@ -23,8 +23,7 @@
     <form action="/" method="POST">
   
       {{ form.hidden_tag() }}
-      {{ form.start_amount.label }}
-      {{ form.start_amount(class='form__field') }}
+      {{ form.start_amount(class='form__field', placeholder='$ 10') }}
       {%  for message in form.start_amount.errors %}
         <p class="form__error">{{ message }}.</p>
       {% endfor %}
