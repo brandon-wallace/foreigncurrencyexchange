@@ -22,7 +22,6 @@
 
     <form action="/" method="POST">
   
-      {{ form.hidden_tag() }}
       {{ form.csrf_token }}
       {{ form.start_amount(class='form__field', value='', placeholder='$ 10') }}
       {%  for message in form.start_amount.errors %}
