@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .venv/*
+=======
+.env
+>>>>>>> f88bcd2... Updated gitignore
 .venv/
 .env
 __pycache__/
