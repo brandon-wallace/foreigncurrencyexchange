@@ -7,30 +7,34 @@
 ![screenshot](application/static/images/screenshot.jpg)
 
 ```
-application/
-├── forms.py
-├── __init__.py
-├── routes.py
-├── static
-│   ├── css
-│   │   └── style.css
-│   ├── images
-│   │   └── favicon.png
-│   └── js
-└── templates
-    ├── 404.html
-    ├── 500.html
-    ├── base.html
-    └── index.html
+├── application/
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   ├── images/
+│   │   │   ├── dollar_bill.png
+│   │   │   ├── favicon.png
+│   │   │   ├── logo.png
+│   │   └── js/
+│   │       └── script.js
+│   ├── templates/
+│   │   ├── 404.html
+│   │   ├── 500.html
+│   │   ├── base.html
+│   │   └── index.html
+│   ├── forms.py
+│   ├── __init__.py
+│   └── routes.py
+├── Pipfile
+├── Pipfile.lock
+├── Procfile
+├── readme.md
+└── run.py
 ```
 
 ## $ pipenv shell
 
 ## $ pipenv install
-
-## $ export FLASK_ENV=development 
-
-## $ export FLASK_APP=run.py
 
 ## $ flask run
 
