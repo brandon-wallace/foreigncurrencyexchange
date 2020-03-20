@@ -17,8 +17,9 @@ noscript p {
 article {
     width: 100%;
     height: auto;
-    min-height: 100%;
     padding: 1rem;
+    min-height: 100%;
+    margin-bottom: -10px;
     box-sizing: border-box;
     background-image: url('../images/dollar_bill.png');
     background-position: right bottom;
@@ -156,7 +157,7 @@ option {
     text-decoration: none;
 }
 
-.date_time {
+.date_and_time {
     text-align: center;
 }
 
