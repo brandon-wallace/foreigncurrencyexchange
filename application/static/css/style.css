@@ -19,6 +19,7 @@ article {
     height: auto;
     padding: 1rem;
     min-height: 100%;
+    margin-bottom: -10px;
     box-sizing: border-box;
     background-image: url('../images/dollar_bill.png');
     background-position: right bottom;
@@ -126,14 +127,38 @@ option {
     box-shadow: inset 0 0 0 #727272;
 }
 
+.result__rate,
+.result__total {
+    text-align: center;
+}
+
 .result__total {
     margin: 1rem 0;
     font-size: 3rem;
-    text-align: center;
 }
 
 .result__currency {
     font-size: 1.25rem;
+}
+
+.footer__link {
+    margin: 0;
+    font-size: .8rem;
+    text-align: center;
+    font-family: monospace, monospace;
+}
+
+.footer__link a {
+    color: #010140;
+}
+
+.footer__link a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.date_and_time {
+    text-align: center;
 }
 
 @media only screen and (min-width: 600px) {
@@ -147,9 +172,6 @@ option {
     article {
         padding: 1.25rem 3rem;
     }
-    .date-and-time {
-        text-align: center;
-    }
 }
 
 @media only screen and (min-width: 955px) {
@@ -162,8 +184,5 @@ option {
     }
     article {
         padding: 1.25rem 3rem;
-    }
-    .date-and-time {
-        text-align: center;
     }
 }

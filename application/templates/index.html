@@ -23,7 +23,7 @@
     <form action="/" method="POST">
   
       {{ form.csrf_token }}
-      {{ form.start_amount(class='form__field', value='', placeholder='$ 10') }}
+      {{ form.start_amount(class='form__field', value='', placeholder='Enter Amount') }}
       {%  for message in form.start_amount.errors %}
         <p class="form__error">{{ message }}.</p>
       {% endfor %}
@@ -36,10 +36,11 @@
     </form>
   
     <div class="result">
-      <h2 class="result__total">{{ '{0:.2f}'.format(amount) if amount }}<span class="result__currency">{{ currency }}</span></h2>
+      <h2 class="result__total">{{ '{0:.2f}'.format(amount) if amount }}<span class="result__currency">{{ currency if currency }}</span></h2>
+      <p class="result__rate">{{ '1 {}'.format(from_rate) if from_rate }}{{ ' = {0:.6f}'.format(rate) if rate }} {{ currency if currency }}</p>
     </div>
   
-    <p class="date-and-time"></p>
+    <p class="date_and_time">last update: {{ date_time }}</p>
 
   </section>
 
