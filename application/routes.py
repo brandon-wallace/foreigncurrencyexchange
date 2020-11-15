@@ -1,6 +1,7 @@
 # application/routes.py
 
-from flask import render_template
+from flask import render_template, url_for, redirect
+from datetime import datetime
 from application import app
 from application.forms import SelectionForm
 import urllib.request
@@ -24,15 +25,49 @@ def query_api():
 def index():
     '''Display home page'''
 
-    amount = None
+    amount = ''
+    currency = ''
+    date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     form = SelectionForm(from_currency='USD', to_currency='MXN')
     text = query_api()
     if form.validate_on_submit():
+        if form.start_amount.data == 0:
+            return redirect(url_for('index'))
+        if form.to_currency.data == form.from_currency.data:
+            amount = form.start_amount.data
+            currency = form.to_currency.data
+            return render_template('index.html', form=form,
+                                   from_rate=form.from_currency.data,
+                                   to_rate=form.to_currency.data,
+                                   amount=amount, currency=currency,
+                                   date_time=date_time)
         if form.from_currency.data == 'USD':
-            amount = form.start_amount.data * 1 * text['rates'][form.to_currency.data]
+            currency = form.to_currency.data
+            amount = form.start_amount.data \
+                    * text['rates'][form.to_currency.data]
+            return render_template('index.html', form=form,
+                                   from_rate=form.from_currency.data,
+                                   to_rate=form.to_currency.data,
+                                   rate=text['rates'][form.to_currency.data],
+                                   amount=amount,
+                                   date_time=date_time,
+                                   currency=currency)
         else:
-            amount = form.start_amount.data / text['rates'][form.from_currency.data] 
-    return render_template('index.html', form=form, amount=amount)
+            currency = form.to_currency.data
+            amount = form.start_amount.data \
+                    / text['rates'][form.from_currency.data]
+            return render_template('index.html', form=form,
+                                   from_rate=form.from_currency.data,
+                                   to_rate=form.to_currency.data,
+                                   rate=text['rates'][form.to_currency.data],
+                                   date_time=date_time,
+                                   amount=amount, currency=currency)
+    return render_template('index.html', form=form,
+                           from_rate=None,
+                           to_rate=None,
+                           rate=None,
+                           date_time=date_time,
+                           amount=None, currency=None)
 
 
 @app.errorhandler(404)

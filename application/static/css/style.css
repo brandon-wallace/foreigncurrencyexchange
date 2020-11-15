@@ -17,8 +17,8 @@ noscript p {
 article {
     width: 100%;
     height: auto;
-    padding: 1rem;
     min-height: 100%;
+    padding: 1rem;
     box-sizing: border-box;
     background-image: url('../images/dollar_bill.png');
     background-position: right bottom;
@@ -26,39 +26,59 @@ article {
     background-size: cover;
 }
 
-.header {
-    font-size: 3rem;
-    margin: .5rem 0;
+header {
+    display: flex;
+    flex-direction: column;
 }
 
-.header__1 {
+.header__logo {
+    width: 84px;
+    height: 34px;
+    margin: 0 auto;
+}
+
+.header__text {
+    margin: .5rem 0;
+    text-align: center;
+    font-size: calc(1.5rem + 2vw);
+}
+
+.header__text1 {
     color: #202020;
 }
 
-.header__2 {
+.header__text2 {
     color: #404040;
 }
 
-.header__3 {
+.header__text3 {
     color: #606060;
+}
+
+section {
+    margin: 0 auto;
+}
+
+form {
+    width: 280px;
+    margin: 0 auto;
 }
 
 label {
     display: block;
-    margin-bottom: .5rem;
+    margin-bottom: .15rem;
 }
 
 .form__field {
-    width: 250px;
+    width: 280px;
     border: 2px;
     outline: 1px;
     padding: .75rem;
-    font-size: 1rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
     outline-style: solid;
+    margin-bottom: 1.25rem;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    background-color: #FFFFFF;
 }
 
 .form__error {
@@ -66,16 +86,23 @@ label {
     color: #CC0000;
 }
 
+select {
+    color: #FFFFFF;
+    background-color: #343434;
+}
+
 option {
     height: 40px;
     border: none;
     outline: none;
     padding: .75rem;
+    color: inherit;
+    background-color: inherit;
     box-sizing: border-box;
 }
 
 .form__button {
-    width: 250px;
+    width: 280px;
     height: 45px;
     border: none;
     outline: none;
@@ -99,7 +126,62 @@ option {
     box-shadow: inset 0 0 0 #727272;
 }
 
-.total {
+.result__rate,
+.result__total {
+    text-align: center;
+}
+
+.result__total {
     margin: 1rem 0;
     font-size: 3rem;
+}
+
+.result__currency {
+    font-size: 1.25rem;
+}
+
+.footer__link {
+    margin: 0;
+    font-size: .8rem;
+    text-align: center;
+    font-family: monospace, monospace;
+}
+
+.footer__link a {
+    color: #010140;
+}
+
+.footer__link a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.date_time {
+    text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+    article {
+        padding: 1.25rem 2rem;
+    }
+    form {
+        width: 280px;
+        margin: 0 auto;
+    }
+    article {
+        padding: 1.25rem 3rem;
+    }
+}
+
+@media only screen and (min-width: 955px) {
+    .header__text {
+        text-align: center;
+    }
+    form {
+        width: 280px;
+        margin: 0 auto;
+    }
+    article {
+        padding: 1.25rem 3rem;
+    }
 }
