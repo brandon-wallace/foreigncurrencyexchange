@@ -1,11 +1,15 @@
 # application/routes.py
 
+import json
+import urllib
+from datetime import datetime, date, timedelta
 from flask import render_template, url_for, redirect
-from datetime import datetime
 from application import app
 from application.forms import SelectionForm
-import urllib.request
-import json
+
+today = date.today()
+rate_30_ago = today - timedelta(days=30)
+rate_90_ago = today - timedelta(days=90)
 
 
 def query_api():
@@ -13,17 +17,17 @@ def query_api():
 
     try:
         url = 'https://api.exchangeratesapi.io/latest?base=USD'
-        response = urllib.request.urlopen(url)
+        response = urllib.urlopen(url)
         data = response.read()
         text = json.loads(data)
         return text
-    except Exception as e:
-        print(e)
+    except Exception:
+        return
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    '''Display home page'''
+    '''Index route'''
 
     amount = ''
     currency = ''
@@ -44,7 +48,7 @@ def index():
         if form.from_currency.data == 'USD':
             currency = form.to_currency.data
             amount = form.start_amount.data \
-                    * text['rates'][form.to_currency.data]
+                * text['rates'][form.to_currency.data]
             return render_template('index.html', form=form,
                                    from_rate=form.from_currency.data,
                                    to_rate=form.to_currency.data,
@@ -55,7 +59,7 @@ def index():
         else:
             currency = form.to_currency.data
             amount = form.start_amount.data \
-                    / text['rates'][form.from_currency.data]
+                / text['rates'][form.from_currency.data]
             return render_template('index.html', form=form,
                                    from_rate=form.from_currency.data,
                                    to_rate=form.to_currency.data,
@@ -72,13 +76,13 @@ def index():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    '''Page not found'''
+    '''404 Page not found'''
 
     return render_template('404.html'), 404
 
 
 @app.errorhandler(500)
 def internal_server_error(error):
-    '''Internal server error'''
+    '''500 Internal server error'''
 
     return render_template('500.html'), 500

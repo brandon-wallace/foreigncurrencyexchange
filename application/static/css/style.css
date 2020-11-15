@@ -35,6 +35,7 @@ header {
     width: 84px;
     height: 34px;
     margin: 0 auto;
+    display: inline-block;
 }
 
 .header__text {
@@ -174,6 +175,12 @@ option {
 }
 
 @media only screen and (min-width: 955px) {
+    header {
+        margin: 0 auto;
+        max-width: 1130px;
+        flex-direction: row;
+        align-items: center;
+    }
     .header__text {
         text-align: center;
     }
