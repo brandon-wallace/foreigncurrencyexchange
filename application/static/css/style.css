@@ -19,6 +19,7 @@ article {
     height: auto;
     padding: 8px;
     min-height: 100%;
+    padding: 1rem;
     box-sizing: border-box;
     background-image: url('../images/dollar_bill.png');
     background-position: right bottom;
