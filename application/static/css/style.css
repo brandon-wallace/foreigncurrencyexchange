@@ -68,6 +68,11 @@ main {
                  4px   4px 0  #013C04;
 }
 
+.header__detail {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
 section {
     margin: 0 auto;
 }
