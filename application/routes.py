@@ -1,11 +1,15 @@
 # application/routes.py
+from pprint import pprint
 
 import json
-import urllib
+import urllib.request
+from os import environ
 from datetime import datetime, date, timedelta
 from flask import render_template, url_for, redirect
 from application import app
 from application.forms import SelectionForm
+
+api_key = environ.get('API_KEY')
 
 today = date.today()
 rate_30_ago = today - timedelta(days=30)
@@ -16,8 +20,8 @@ def query_api():
     '''Query API for exchange rates'''
 
     try:
-        url = 'https://api.exchangeratesapi.io/latest?base=USD'
-        response = urllib.urlopen(url)
+        url = f'https://v6.exchangerate-api.com/v6/{api_key}/latest/USD'
+        response = urllib.request.urlopen(url)
         data = response.read()
         text = json.loads(data)
         return text
@@ -48,22 +52,22 @@ def index():
         if form.from_currency.data == 'USD':
             currency = form.to_currency.data
             amount = form.start_amount.data \
-                * text['rates'][form.to_currency.data]
+                * text['conversion_rates'][form.to_currency.data]
             return render_template('index.html', form=form,
                                    from_rate=form.from_currency.data,
                                    to_rate=form.to_currency.data,
-                                   rate=text['rates'][form.to_currency.data],
+                                   rate=text['conversion_rates'][form.to_currency.data],
                                    amount=amount,
                                    date_time=date_time,
                                    currency=currency)
         else:
             currency = form.to_currency.data
             amount = form.start_amount.data \
-                / text['rates'][form.from_currency.data]
+                / text['conversion_rates'][form.from_currency.data]
             return render_template('index.html', form=form,
                                    from_rate=form.from_currency.data,
                                    to_rate=form.to_currency.data,
-                                   rate=text['rates'][form.to_currency.data],
+                                   rate=text['conversion_rates'][form.to_currency.data],
                                    date_time=date_time,
                                    amount=amount, currency=currency)
     return render_template('index.html', form=form,
