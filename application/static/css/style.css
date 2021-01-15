@@ -17,9 +17,9 @@ noscript p {
 article {
     width: 100%;
     height: auto;
-    padding: 1rem;
+    padding: 8px;
     min-height: 100%;
-    margin-bottom: -10px;
+    padding: 1rem;
     box-sizing: border-box;
     background-image: url('../images/dollar_bill.png');
     background-position: right bottom;
@@ -29,31 +29,49 @@ article {
 
 header {
     display: flex;
+    color: #FFFFFF;
+    max-width: 550px;
+    padding-top: 1em;
+    box-sizing: border-box;
     flex-direction: column;
+    border-radius: 20px 20px 0 0;
+    background-color: hsla(120, 100%, 25%, .5);
+}
+
+main {
+    margin: 0 auto;
+    max-width: 550px;
+    padding-bottom: 1em;
+    box-sizing: border-box;
+    border-radius: 0 0 20px 20px;
+    background-color: hsla(120, 100%, 25%, .5);
 }
 
 .header__logo {
-    width: 84px;
-    height: 34px;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
+    max-width: 150px;
+    display: inline-block;
 }
 
 .header__text {
+    color: #FFFFFF;
     margin: .5rem 0;
     text-align: center;
-    font-size: calc(1.5rem + 2vw);
+    font-size: calc(2rem + 2vw);
+    text-shadow: 1px   1px 0  #013C04,  
+                -1px  -1px 0  #013C04,  
+                 1px  -1px 0  #013C04,  
+                -1px   1px 0  #013C04,  
+                 2px   2px 0  #013C04,
+                 3px   3px 0  #013C04,
+                 4px   4px 0  #013C04;
 }
 
-.header__text1 {
-    color: #202020;
-}
-
-.header__text2 {
-    color: #404040;
-}
-
-.header__text3 {
-    color: #606060;
+.header__detail {
+    text-align: center;
+    margin: 0 0 1rem 0;
 }
 
 section {
@@ -85,11 +103,6 @@ label {
 .form__error {
     margin-top: 0;
     color: #CC0000;
-}
-
-select {
-    color: #FFFFFF;
-    background-color: #343434;
 }
 
 option {
@@ -157,32 +170,28 @@ option {
     text-decoration: none;
 }
 
-.date_and_time {
+.date_time {
     text-align: center;
 }
 
 @media only screen and (min-width: 600px) {
-    article {
-        padding: 1.25rem 2rem;
-    }
     form {
         width: 280px;
         margin: 0 auto;
     }
-    article {
-        padding: 1.25rem 3rem;
-    }
 }
 
 @media only screen and (min-width: 955px) {
+    header {
+        margin: 0 auto;
+        flex-direction: column;
+        align-items: center;
+    }
     .header__text {
         text-align: center;
     }
     form {
         width: 280px;
         margin: 0 auto;
-    }
-    article {
-        padding: 1.25rem 3rem;
     }
 }

@@ -8,21 +8,21 @@
 
   <header>
 
-    <img class="header__logo" src="{{ url_for('static', filename='images/logo.png') }}">
+    <img class="header__logo" src="{{ url_for('static', filename='images/logo_300.png') }}">
 
-    <h1 class="header__text">
-      <span class="header__text1">FOREIGN</span>
-      <span class="header__text2">CURRENCY</span>
-      <span class="header__text3">EXCHANGE</span>
-    </h1>
+    <h1 class="header__text">FCEXCHANGE</h1>
+
+    <p class="header__detail">Foriegn Currency Exchange: Get the latest exchange rates.</p>
 
   </header>
 
-  <section>
+  <main>
 
     <form action="/" method="POST">
   
       {{ form.csrf_token }}
+
+      {{ form.start_amount.label }}
       {{ form.start_amount(class='form__field', value='', placeholder='Enter Amount') }}
       {%  for message in form.start_amount.errors %}
         <p class="form__error">{{ message }}.</p>
@@ -40,8 +40,8 @@
       <p class="result__rate">{{ '1 {}'.format(from_rate) if from_rate }}{{ ' = {0:.6f}'.format(rate) if rate }} {{ currency if currency }}</p>
     </div>
   
-    <p class="date_and_time">last update: {{ date_time }}</p>
+    <p class="date_time">last update: {{ date_time }}</p>
 
-  </section>
+  </main>
 
 {% endblock %}
