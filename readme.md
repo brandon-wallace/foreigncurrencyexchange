@@ -4,9 +4,7 @@
 
 # https://fcexchange.tk
 
-![screenshot-mobile](application/static/images/screenshot_mobile.jpg)
-
-![screenshot](application/static/images/screenshot.jpg)
+![screenshot](application/static/images/screenshot.png)
 
 ```
 ├── application/
@@ -14,7 +12,7 @@
 │   │   ├── css/
 │   │   │   └── style.css
 │   │   ├── images/
-│   │   │   ├── dollar_bill.png
+│   │   │   ├── background_dollars_pilled_up.png
 │   │   │   ├── favicon.png
 │   │   │   ├── logo.png
 │   │   └── js/
@@ -30,6 +28,8 @@
 ├── Pipfile
 ├── Pipfile.lock
 ├── Procfile
+├── requirements.txt
+├── runtime.txt
 ├── readme.md
 └── run.py
 ```
