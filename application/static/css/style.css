@@ -22,10 +22,10 @@ article {
     padding: 1rem;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    background-image: url('../images/dollar_bill.png');
+    background-image: url('../images/background_dollars_pilled_up.png');
     background-position: right bottom;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 50%;
 }
 
 header {
@@ -43,7 +43,7 @@ header {
         -ms-flex-direction: column;
             flex-direction: column;
     border-radius: 20px 20px 0 0;
-    background-color: hsla(120, 100%, 25%, .5);
+    background-color: hsla(120, 100%, 25%, .6);
 }
 
 main {
@@ -53,7 +53,7 @@ main {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     border-radius: 0 0 20px 20px;
-    background-color: hsla(120, 100%, 25%, .5);
+    background-color: hsla(120, 100%, 25%, .6);
 }
 
 .header__logo {
