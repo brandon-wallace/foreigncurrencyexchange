@@ -22,15 +22,9 @@
 
     </noscript>
 
-    <article>
+    {% block body %}
 
-      {% block body %}
-
-      {% endblock %}
-
-    </article>
-    
-    <p class="footer__link">created by: <a href="https://github.com/brandon-wallace">brandon wallace</a></p>
+    {% endblock %}
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
