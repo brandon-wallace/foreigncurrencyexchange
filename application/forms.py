@@ -6,8 +6,8 @@ from wtforms.validators import InputRequired
 class SelectionForm(FlaskForm):
     '''Selection fields'''
 
-    start_amount = IntegerField('START AMOUNT:', validators=[InputRequired()])
-    from_currency = SelectField('FROM:', choices=[
+    start_amount = IntegerField('Amount:', validators=[InputRequired()])
+    from_currency = SelectField('From:', choices=[
                                ('USD', 'US Dollar (USD)'),
                                ('AUD', 'Australian Dollar (AUD)'),
                                ('BGN', 'Bulgarian Lev (BGN)'),
@@ -42,7 +42,7 @@ class SelectionForm(FlaskForm):
                                ('TRY', 'Turkish Lira (TRY)'),
                                ('ZAR', 'South African Rand (ZAR)')
                                ])
-    to_currency = SelectField('TO:', choices=[
+    to_currency = SelectField('To:', choices=[
                                ('AUD', 'Australian Dollar (AUD)'),
                                ('BGN', 'Bulgarian Lev (BGN)'),
                                ('BRL', 'Brazilian Real (BRL)'),
