@@ -20,12 +20,22 @@ body {
 
 body {
     margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
-    flex-direction: column;
-    font-family: sans-serif;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background-color: #158A0C;
-    font-family: 'OpenSans-Regular', Arial;
+    font-family: 'OpenSans-Regular', sans-serif;
+    background: url('../images/green_silk.png'), -webkit-gradient(linear, left top, left bottom, from(hsla(116, 84%, 29%, 1)), to(hsla(116, 84%, 29%, 1)));
+    background: url('../images/green_silk.png'), -o-linear-gradient(hsla(116, 84%, 29%, 1), hsla(116, 84%, 29%, 1));
+    background: url('../images/green_silk.png'), linear-gradient(hsla(116, 84%, 29%, 1), hsla(116, 84%, 29%, 1));
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
 }
 
 noscript p {
@@ -65,10 +75,6 @@ main {
     padding-bottom: 1em;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    border-radius: 0 0 20px 20px;
-    /*
-    background-color: hsla(0, 0%, 0%, .5);
-    */
 }
 
 .header__logo {
@@ -84,6 +90,7 @@ main {
     margin: .5rem 0;
     text-align: center;
     font-size: calc(2.3rem + 2vw);
+    text-shadow: 4px 4px 0 #196719;
 }
 
 .header__detail {
@@ -91,10 +98,6 @@ main {
     margin: 0 0 1rem 0;
     font-size: 1.2rem;
     font-weight: bold;
-}
-
-section {
-    margin: 0 auto;
 }
 
 form {
@@ -160,14 +163,28 @@ option {
 }
 
 .form__button:hover {
-    background-color: #454545;
+    background-color: #064801;
+}
+
+.result {
+    padding: .75rem;
+    margin-top: 1em;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+     background-color: hsla(0, 0%, 0%, .4);
 }
 
 .result__rate,
-.result__total {
+.result__total,
+.date_time {
     color: #FFFFFF;
     text-align: center;
-    font-family: 'OpenSans-Regular', Arial;
+    font-family: 'Inconsolata', monospace;
+}
+
+.result__rate {
+    font-size: 1.3rem;
 }
 
 .result__total {
@@ -181,11 +198,17 @@ option {
 
 footer {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: auto;
     min-height: 100px;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .footer__link {
@@ -197,7 +220,7 @@ footer {
 }
 
 .footer__link a {
-    color: #76EE00;
+    color: #EE7A00;
     font-weight: bold;
     text-decoration: none;
 }
@@ -206,17 +229,17 @@ footer {
     text-decoration: underline;
 }
 
-.date_time {
-    color: #FFFFFF;
-    font-weight: bold;
-    text-align: center;
-    background-color: #158A0C;
-}
-
 @media only screen and (min-width: 380px) {
     form {
         max-width: 350px;
         margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .result__rate,
+    .date_time {
+        font-size: 1.5rem;
     }
 }
 

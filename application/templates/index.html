@@ -14,7 +14,7 @@
 
     <h2 class="header__detail">Foriegn Currency Exchange</h2>
 
-    <h3 class="header__detail">Get the latest exchange rates.</h3>
+    <h3 class="header__detail">Get live exchange rates</h3>
 
   </header>
 
@@ -41,11 +41,10 @@
 
       <h2 class="result__total">{{ '{0:.2f}'.format(amount) if amount }}<span class="result__currency">{{ currency if currency }}</span></h2>
       <p class="result__rate">{{ '1 {}'.format(from_rate) if from_rate }}{{ ' = {0:.6f}'.format(rate) if rate }} {{ currency if currency }}</p>
+      <p class="date_time">last update: {{ date_time if date_time }}</p>
 
     </div>
   
-    <p class="date_time">last update: {{ date_time if date_time }}</p>
-
   </main>
 
   <footer>
