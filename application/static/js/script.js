@@ -1,9 +1,9 @@
 // application/static/js/script.js
 
 
-const date = new Date();
+let date = new Date();
 
 (function() {
-    date.toLocaleString({ 
+    date = date.toISOString();
     document.querySelector('.date_time').textContent = date;
 })();
