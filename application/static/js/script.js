@@ -1,20 +1,13 @@
 // application/static/js/script.js
 
 
-const date = new Date();
+const form = document.querySelector('form');
+const table = document.querySelector('table');
 
-(function() {
-    date.toLocaleString('en-US', { 
-        hour12: false, 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        weekday: 'long', 
-        timeZone: 'UTC', 
-        minute: '2-digit', 
-        second: '2-digit', 
-        second: '2-digit', 
-        hour: '2-digit' 
-    });
-    document.querySelector('.date-and-time').textContent = date;
-})();
+
+const displayTable = () => {
+    document.getElementById('hide').style.display = 'block';
+}
+
+
+form.addEventListener('submit', displayTable, false);

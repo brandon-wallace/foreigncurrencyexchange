@@ -171,12 +171,34 @@ option {
 }
 
 .result__total {
-    margin: 1rem 0;
+    margin: 2rem 0 1rem 0;
     font-size: 3rem;
 }
 
 .result__currency {
     font-size: 1.25rem;
+}
+
+table {
+    width: 100%;
+    color: #FFFFFF;
+    max-width: 500px;
+    border-spacing: 0;
+    visibility: hidden;
+    margin-bottom: 2.5em;
+}
+
+th {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+th,
+td {
+    padding: 2em 1em;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 2px solid #FFFFFF;
 }
 
 footer {

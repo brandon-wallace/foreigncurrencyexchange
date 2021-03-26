@@ -1,5 +1,4 @@
 # application/routes.py
-from pprint import pprint
 import json
 import urllib.request
 from os import environ
@@ -14,20 +13,13 @@ today = date.today()
 todays_date = today + timedelta(days=1)
 rate_30_days_ago = today - timedelta(days=30)
 rate_60_days_ago = today - timedelta(days=60)
-rate_60_days = today - timedelta(days=59)
-
-print(api_key)
-print(today)
-print(todays_date)
-print(rate_30_days_ago)
-print(rate_60_days_ago)
+rate_59_days_ago = today - timedelta(days=59)
 
 
 def query_api(base, end):
     '''Query API for exchange rates'''
 
     try:
-        #url = f'https://v6.exchangerate-api.com/v6/{api_key}/latest/USD'
         url = f'https://api.exchangeratesapi.io/history?start_at={rate_60_days_ago}&end_at={todays_date}&base=USD&symbols={base},{end}'
         response = urllib.request.urlopen(url)
         data = response.read()
@@ -47,7 +39,8 @@ def index():
     form = SelectionForm(from_currency='USD', to_currency='MXN')
     if form.validate_on_submit():
         text = query_api(form.from_currency.data, form.to_currency.data)
-        print(text)
+        if text is None:
+            return render_template('index.html', form=form, amount='Error')
         if form.start_amount.data == 0:
             return redirect(url_for('index'))
         if form.to_currency.data == form.from_currency.data:
@@ -61,30 +54,29 @@ def index():
         if form.from_currency.data == 'USD':
             currency = form.to_currency.data
             amount = form.start_amount.data \
-                * text['rates'][today.strftime('%Y-%m-%d')][form.to_currency.data]
-            thirty_days_ago = form.start_amount.data \
-                * text['rates'][rate_30_days_ago.strftime('%Y-%m-%d')][form.to_currency.data]
-            sixty_days_ago = form.start_amount.data \
-                * text['rates'][rate_60_days.strftime('%Y-%m-%d')][form.to_currency.data]
-            print(thirty_days_ago)
-            print(sixty_days_ago)
+                * text['rates'][today.strftime('%Y-%m-%d')][str(form.to_currency.data)]
             return render_template('index.html', form=form,
                                    from_rate=form.from_currency.data,
                                    to_rate=form.to_currency.data,
-                                   rate="99.99",# text['conversion_rates'][form.to_currency.data],
+                                   rate=text['rates'][today.strftime('%Y-%m-%d')][str(form.to_currency.data)],
                                    amount=amount,
+                                   thirty_days_ago=text['rates'][rate_30_days_ago.strftime('%Y-%m-%d')][str(form.to_currency.data)],
+                                   sixty_days_ago=text['rates'][rate_59_days_ago.strftime('%Y-%m-%d')][str(form.to_currency.data)],
                                    date_time=date_time,
                                    currency=currency)
-        # else:
-        #     currency = form.to_currency.data
-        #     amount = form.start_amount.data \
-        #         / text['conversion_rates'][form.from_currency.data]
-        #     return render_template('index.html', form=form,
-        #                            from_rate=form.from_currency.data,
-        #                            to_rate=form.to_currency.data,
-        #                            rate=text['conversion_rates'][form.to_currency.data],
-        #                            date_time=date_time,
-        #                            amount=amount, currency=currency)
+        else:
+            currency = form.to_currency.data
+            amount = form.start_amount.data \
+                / text['rates'][today.strftime('%Y-%m-%d')][str(form.from_currency.data)]
+            return render_template('index.html', form=form,
+                                   from_rate=form.from_currency.data,
+                                   to_rate=form.to_currency.data,
+                                   rate=text['rates'][today.strftime('%Y-%m-%d')][form.to_currency.data],
+                                   date_time=date_time,
+                                   thirty_days_ago=text['rates'][rate_30_days_ago.strftime('%Y-%m-%d')][str(form.from_currency.data)],
+                                   sixty_days_ago=text['rates'][rate_59_days_ago.strftime('%Y-%m-%d')][str(form.from_currency.data)],
+                                   amount=amount,
+                                   currency=currency)
     return render_template('index.html', form=form,
                            from_rate=None,
                            to_rate=None,

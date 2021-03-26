@@ -24,15 +24,15 @@
   
       {{ form.csrf_token }}
 
-      {{ form.start_amount.label }}
-      {{ form.start_amount(class='form__field', value='', placeholder='Enter Amount') }}
+      {{ form.start_amount.label(for='start_amount') }}
+      {{ form.start_amount(class='form__field', id='start_amount', value='', placeholder='Enter Amount') }}
       {%  for message in form.start_amount.errors %}
         <p class="form__error">{{ message }}.</p>
       {% endfor %}
-      {{ form.from_currency.label }}
-      {{ form.from_currency(class='form__field') }}
-      {{ form.to_currency.label }}
-      {{ form.to_currency(class='form__field') }}
+      {{ form.from_currency.label(for='from_currency') }}
+      {{ form.from_currency(class='form__field', id='from_currency') }}
+      {{ form.to_currency.label(for='to_currency') }}
+      {{ form.to_currency(class='form__field', id='to_currency') }}
       <button class="form__button" type="submit">CALCULATE</button>
   
     </form>
@@ -41,6 +41,36 @@
 
       <h2 class="result__total">{{ '{0:.2f}'.format(amount) if amount }}<span class="result__currency">{{ currency if currency }}</span></h2>
       <p class="result__rate">{{ '1 {}'.format(from_rate) if from_rate }}{{ ' = {0:.6f}'.format(rate) if rate }} {{ currency if currency }}</p>
+
+      <table id="hide">
+
+        <thead>
+
+          <tr>
+            <th></th>
+            <th>30 days</th>
+            <th>60 days</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td></td>
+            <td>{{ '{0:.2f}'.format(thirty_days_ago) if thirty_days_ago }}</td>
+            <td>{{ '{0:.2f}'.format(sixty_days_ago) if sixty_days_ago }}</td>
+          </tr>
+
+          <tr>
+            <td>Average</td>
+            <td>{{ '{0:.2f}'.format(thirty_days_ago) if thirty_days_ago }}</td>
+            <td>{{ '{0:.2f}'.format(sixty_days_ago) if sixty_days_ago }}</td>
+          </tr>
+
+        </tbody>
+
+      </table>
 
     </div>
   
