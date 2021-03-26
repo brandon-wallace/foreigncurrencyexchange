@@ -58,14 +58,14 @@
 
           <tr>
             <td></td>
-            <td>{{ '{0:.5f}'.format(thirty_days_ago) if thirty_days_ago }}</td>
-            <td>{{ '{0:.5f}'.format(sixty_days_ago) if sixty_days_ago }}</td>
+            <td>{{ '{0:.5f}'.format(thirty_days_ago) if thirty_days_ago else '0.00000' }}</td>
+            <td>{{ '{0:.5f}'.format(sixty_days_ago) if sixty_days_ago else '0.00000' }}</td>
           </tr>
 
           <tr>
             <td>Average</td>
-            <td>{{ '{0:.5f}'.format(thirty_days_ago) if thirty_days_ago }}</td>
-            <td>{{ '{0:.5f}'.format(sixty_days_ago) if sixty_days_ago }}</td>
+            <td>{{ '{0:.5f}'.format(thirty_days_ago) if thirty_days_ago else '0.00000' }}</td>
+            <td>{{ '{0:.5f}'.format(sixty_days_ago) if sixty_days_ago else '0.00000' }}</td>
           </tr>
 
         </tbody>
