@@ -1,9 +1,13 @@
 // application/static/js/script.js
 
 
-let date = new Date();
+const form = document.querySelector('form');
+const table = document.querySelector('table');
 
-(function() {
-    date = date.toISOString();
-    document.querySelector('.date_time').textContent = date;
-})();
+
+const displayTable = () => {
+    document.getElementById('hide').style.display = 'block';
+}
+
+
+form.addEventListener('submit', displayTable, false);
