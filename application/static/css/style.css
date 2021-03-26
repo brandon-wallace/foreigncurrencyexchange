@@ -30,14 +30,6 @@ body {
             flex-direction: column;
     background-color: #158A0C;
     font-family: 'OpenSans-Regular', sans-serif;
-    /*
-    background: url('../images/green_silk.png'), -webkit-gradient(linear, left top, left bottom, from(hsla(116, 84%, 29%, 1)), to(hsla(116, 84%, 29%, 1)));
-    background: url('../images/green_silk.png'), -o-linear-gradient(hsla(116, 84%, 29%, 1), hsla(116, 84%, 29%, 1));
-    background: url('../images/green_silk.png'), linear-gradient(hsla(116, 84%, 29%, 1), hsla(116, 84%, 29%, 1));
-    background-position: center;
-    background-repeat: repeat;
-    background-size: cover;
-    */
 }
 
 noscript p {
@@ -236,14 +228,14 @@ footer {
 
 .footer__link {
     margin: 0;
-    color: #003300;
+    color: #7BF77B;
     font-size: .8rem;
     text-align: center;
     font-family: monospace, monospace;
 }
 
 .footer__link a {
-    color: #EE7A00;
+    color: #FFFFFF;
     font-weight: bold;
     text-decoration: none;
 }
