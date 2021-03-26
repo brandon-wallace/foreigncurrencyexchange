@@ -10,4 +10,4 @@ const displayTable = () => {
 }
 
 
-form.addEventListener('submit', displayTable, false);
+form.addEventListener('submit', setTimeout(displayTable, 500), false);

@@ -30,12 +30,14 @@ body {
             flex-direction: column;
     background-color: #158A0C;
     font-family: 'OpenSans-Regular', sans-serif;
+    /*
     background: url('../images/green_silk.png'), -webkit-gradient(linear, left top, left bottom, from(hsla(116, 84%, 29%, 1)), to(hsla(116, 84%, 29%, 1)));
     background: url('../images/green_silk.png'), -o-linear-gradient(hsla(116, 84%, 29%, 1), hsla(116, 84%, 29%, 1));
     background: url('../images/green_silk.png'), linear-gradient(hsla(116, 84%, 29%, 1), hsla(116, 84%, 29%, 1));
     background-position: center;
     background-repeat: repeat;
     background-size: cover;
+    */
 }
 
 noscript p {
@@ -172,7 +174,6 @@ option {
     border-radius: 4px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-     background-color: hsla(0, 0%, 0%, .4);
 }
 
 .result__rate,
@@ -201,7 +202,7 @@ table {
     color: #FFFFFF;
     max-width: 500px;
     border-spacing: 0;
-    visibility: hidden;
+    display: none;
     margin-bottom: 2.5em;
 }
 
@@ -259,13 +260,18 @@ footer {
 }
 
 @media only screen and (min-width: 500px) {
-    .result__rate,
-    .date_time {
+    .result__rate {
         font-size: 1.5rem;
+    }
+    .date_time {
+        font-size: 1rem;
     }
 }
 
 @media only screen and (min-width: 955px) {
+    .result__total {
+        font-size: 4rem;
+    }
     header {
         -webkit-box-align: center;
             -ms-flex-align: center;
