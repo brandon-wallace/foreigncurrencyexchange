@@ -9,18 +9,12 @@ from application.forms import SelectionForm
 
 api_key = environ.get('API_KEY')
 
-today = date.today()
-todays_date = today + timedelta(days=1)
-rate_30_days_ago = today - timedelta(days=30)
-rate_60_days_ago = today - timedelta(days=60)
-rate_59_days_ago = today - timedelta(days=59)
-
 
 def query_api(base, end):
     '''Query API for exchange rates'''
 
     try:
-        url = f'http://api.exchangeratesapi.io/v1/latest?access_key={api_key}&base=USD'
+        url = f'http://api.exchangeratesapi.io/v1/latest?access_key={api_key}'
         response = urllib.request.urlopen(url)
         data = response.read()
         text = json.loads(data)
@@ -40,7 +34,7 @@ def index():
     if form.validate_on_submit():
         text = query_api(form.from_currency.data, form.to_currency.data)
         if text is None:
-            return render_template('index.html', form=form, amount='Error')
+            return render_template('index.html', form=form, amount=float(0.0))
         if form.start_amount.data == 0:
             return redirect(url_for('index'))
         if form.to_currency.data == form.from_currency.data:
