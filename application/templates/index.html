@@ -42,36 +42,6 @@
       <h2 class="result__total">{{ '{0:.2f}'.format(amount) if amount }}<span class="result__currency">{{ currency if currency }}</span></h2>
       <p class="result__rate">{{ '1 {}'.format(from_rate) if from_rate }}{{ ' = {0:.6f}'.format(rate) if rate }} {{ currency if currency }}</p>
 
-      <table id="hide">
-
-        <thead>
-
-          <tr>
-            <th></th>
-            <th>30 days</th>
-            <th>60 days</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td></td>
-            <td>{{ '{0:.5f}'.format(thirty_days_ago) if thirty_days_ago else '0.00000' }}</td>
-            <td>{{ '{0:.5f}'.format(sixty_days_ago) if sixty_days_ago else '0.00000' }}</td>
-          </tr>
-
-          <tr>
-            <td>Average</td>
-            <td>{{ '{0:.5f}'.format(thirty_days_ago) if thirty_days_ago else '0.00000' }}</td>
-            <td>{{ '{0:.5f}'.format(sixty_days_ago) if sixty_days_ago else '0.00000' }}</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
       <p class="date_time">last update: {{ date_time if date_time }}</p>
 
     </div>
