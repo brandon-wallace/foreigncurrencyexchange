@@ -20,7 +20,7 @@ def query_api(base, end):
     '''Query API for exchange rates'''
 
     try:
-        url = f'http://api.exchangeratesapi.io/v1/latest?access_key={api_key}'
+        url = f'http://api.exchangeratesapi.io/v1/latest?access_key={api_key}&base=USD'
         response = urllib.request.urlopen(url)
         data = response.read()
         text = json.loads(data)
